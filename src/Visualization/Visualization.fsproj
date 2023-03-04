@@ -5,7 +5,12 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="TimeSeries02.fsx" />
+    <Compile Include="TimeSeries01.fsx" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tools\Tools.fsproj" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

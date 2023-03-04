@@ -4,7 +4,9 @@ storage: none
 framework: net6.0, netstandard2.0, netstandard2.1
 
 nuget Newtonsoft.Json >= 12.0.3
-nuget Plotly.NET 2.0.0-preview.10
-nuget Plotly.NET.Interactive 2.0.0-preview.10
+nuget Plotly.NET >= 3.0.1
+nuget Plotly.NET.Interactive >= 3.0.2
+nuget XPlot.Plotly >= 4.0.6
 nuget Deedle
 nuget FSharp.Data
+nuget FSharp.Core 6.0.6
