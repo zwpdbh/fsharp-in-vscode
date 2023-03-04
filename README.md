@@ -84,9 +84,20 @@ open Plotly.NET
 open Plotly.NET.LayoutObjects
 open FSharp.Data
 
-3. Run it as:
-// run it from command-line with 
-dotnet fsi TimeSeries.fsx 
+3. Run script file
+
+Run fsx script from command-line from project folder:
+```
+dotnet fsi TimeSeries01.fsx "plot" "demo02" 
+dotnet fsi TimeSeries01.fsx "plot" "demo01" 
+dotnet fsi TimeSeries01.fsx "pigLatin" "zwpdbh"
+```
+
+Or from root of solution
+```
+dotnet fsi ./src/Visualization/TimeSeries01.fsx "plot" "demo01" 
+dotnet fsi ./src/Visualization/TimeSeries01.fsx "pigLatin" "zwpdbh" 
+```
 
 # Troubleshooting
 ## Try to fix:

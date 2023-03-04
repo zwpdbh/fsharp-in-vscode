@@ -7,7 +7,7 @@ NUGET
     DynamicObj (2.0)
       FSharp.Core (>= 6.0.2)
       Newtonsoft.Json (>= 13.0.1)
-    FSharp.Core (7.0.200)
+    FSharp.Core (6.0.6)
     FSharp.Data (5.0.2)
       FSharp.Core (>= 5.0.1)
     Giraffe.ViewEngine (1.4)

@@ -1,11 +1,14 @@
 #r "nuget: Plotly.NET"
 #r "nuget: FSharp.Data"
+#r "../Tools/bin/Debug/net6.0/Tools.dll"
 
 open Plotly.NET
 open Plotly.NET.LayoutObjects
 open FSharp.Data
 open System
 
+// Need to add "Tools" as project reference, and the Tools.dll is built out
+open Tools.PigLatin
 
 let data =
     CsvFile.Load("https://raw.githubusercontent.com/plotly/datasets/master/stockdata.csv")
@@ -41,12 +44,25 @@ let demo02 () =
     |> Chart.show
 
 
-// run it from command-line with 
-// dotnet fsi MyFirstScript.fsx "zhaowei"
+// Run fsx script from command-line from project folder:
+// dotnet fsi TimeSeries01.fsx "plot" "demo02" 
+// dotnet fsi TimeSeries01.fsx "plot" "demo01" 
+// dotnet fsi TimeSeries01.fsx "pigLatin" "zwpdbh"
+// Or from root of solution
+// dotnet fsi ./src/Visualization/TimeSeries01.fsx "pigLatin" "zwpdbh" 
 match fsi.CommandLineArgs with
-    | [| scriptName; word |] ->
-        printfn "running script: %s" scriptName
-        toPigLatin word |> printfn "%A"
+    | [| _scriptName; option; arg |] ->
+        match option, arg with 
+        | "plot", "demo01" -> 
+            printfn "running plot for demo01"
+            demo01()
+        | "plot", "demo02" -> 
+            printfn "running plot for demo02"
+            demo02()
+        | "pigLatin", word -> 
+            printfn "running module from tools"
+            toPigLatin word |> printfn "%A"
+        | _, _ -> 
+            printfn "other options are not supported"       
     | _ ->
         printfn "USAGE: [word]"    
-demo02()
