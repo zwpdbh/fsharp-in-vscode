@@ -100,6 +100,8 @@ dotnet fsi ./src/Visualization/TimeSeries01.fsx "pigLatin" "zwpdbh"
 ```
 
 # Troubleshooting
+Warning: Occationally vscode could not highlight the code or red line code with modules not found error. Usually, it could be resolved by reload vscode.
+Even sometimes with red line errors in vscode, we could still be able to run the script from command-line. 
 ## Try to fix:
 dotnet fsi TimeSeries.fsx 
 
