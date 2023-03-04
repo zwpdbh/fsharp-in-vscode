@@ -69,10 +69,11 @@ dotnet paket update
 1. Add file to F# project via vscode F# explorer:
 Such that, the file is included in “Compile Include”
   <ItemGroup>
-    <Compile Include="TimeSeries.fsx" />
+    <Compile Include="TimeSeries.fsx" />  (DO NOT DO THIS!)
     <Compile Include="Program.fs" />
   </ItemGroup>
 Otherwise, it is not aware by the F# project.
+Notice: DO NOT include ".fsx" file, otherwise you may not be able to run program as "dotnet run".
 
 2. Add references like:
 #r "nuget: Plotly.NET"
@@ -124,4 +125,11 @@ But still keep:  open Plotly.NET.LayoutObjects
 
 
 ## Try to fix:
-“fsi is not defined problem”
+“fsi is not defined problem” during running program with "dotnet run".
+Solution: DO NOT include ".fsx" into project as compile component. 
+Afte I comment out them from project build, I could dotnet run project meanwhile I could run .fsx script file seperately.
+```
+    <!-- <Compile Include="TimeSeries01.fsx" />
+    <Compile Include="TimeSeries02.fsx" /> -->
+    <Compile Include="Program.fs" />
+```

@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="TimeSeries01.fsx" />
-    <Compile Include="TimeSeries02.fsx" />
+    <!-- <Compile Include="TimeSeries01.fsx" />
+    <Compile Include="TimeSeries02.fsx" /> -->
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

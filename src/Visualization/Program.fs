@@ -44,25 +44,27 @@ module MyTest =
 
 
 module Main = 
-// dotnet run apple banana
+// Run the program within project folder
+// dotnet run "pigLatin" "zwpdbh"
+// dotnet run "plot" "demo01"
     [<EntryPoint>]
     let main args =
         args |> printfn "%A"
-        // match args with
-        // | [| _scriptName; option; arg |] ->
-        //     match option, arg with 
-        //     | "plot", "demo01" -> 
-        //         printfn "running plot for demo01"
-        //         demo01()
-        //     | "plot", "demo02" -> 
-        //         printfn "running plot for demo02"
-        //         demo02()
-        //     | "pigLatin", word -> 
-        //         printfn "running module from tools"
-        //         toPigLatin word |> printfn "%A"
-        //     | _, _ -> 
-        //         printfn "other options are not supported"       
-        // | _ ->
-        //     printfn "USAGE: [word]"    
+        match args with
+        | [| option; arg |] ->
+            match option, arg with 
+            | "plot", "demo01" -> 
+                printfn "running plot for demo01"
+                MyTest.demo01()
+            | "plot", "demo02" -> 
+                printfn "running plot for demo02"
+                MyTest.demo02()
+            | "pigLatin", word -> 
+                printfn "running module from tools"
+                Tools.PigLatin.toPigLatin word |> printfn "%A"
+            | _, _ -> 
+                printfn "other options are not supported"       
+        | _ ->
+            printfn "USAGE: [word]"    
 
         0
