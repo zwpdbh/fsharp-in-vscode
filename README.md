@@ -100,6 +100,45 @@ dotnet fsi ./src/Visualization/TimeSeries01.fsx "plot" "demo01"
 dotnet fsi ./src/Visualization/TimeSeries01.fsx "pigLatin" "zwpdbh" 
 ```
 
+# Jupyter Notebook for F# in Visual Studio Code
+## Prepare vscode extensions
+1. Install "Jupyter" extension.
+2. Install "Polyglot Notebooks" extension
+
+## Install the .NET Interactive globally
+To let code block in Jupyter notebook has F# option, we need to run:
+```
+dotnet tool install -g Microsoft.dotnet-interactive
+dotnet tool update -g Microsoft.dotnet-interactive
+```
+
+## Register F# kernel for Jupyter
+The most easy way to do this is through "Anaconda".
+1. Install Anaconda
+2. Open the Anaconda Prompt (Windows) or a terminal (macOS, Linux) run the following commands:
+```
+# Ensure that Jupyter and .NET are installed and present on the path:
+jupyter kernelspec list
+dotnet --version
+
+# Install the .NET kernel
+dotnet interactive jupyter install
+
+# Verify the installation by running the following again in the Anaconda Prompt.
+> jupyter kernelspec list
+  .net-csharp        ~\jupyter\kernels\.net-csharp
+  .net-fsharp        ~\jupyter\kernels\.net-fsharp
+  .net-powershell    ~\jupyter\kernels\.net-powershell
+  python3            ~\jupyter\kernels\python3
+```
+
+## Prepare a FSharp project to use FSharp Script 
+1. via vscode F# project -> console application -> src/Notebook -> Notebook
+2. add file TravelMap.ipynb 
+3. add file paket.references to reference dependencies
+4. In ipynb file use code block with option F#. 
+
+
 # Troubleshooting
 Warning: Occationally vscode could not highlight the code or red line code with modules not found error. Usually, it could be resolved by reload vscode.
 Even sometimes with red line errors in vscode, we could still be able to run the script from command-line. 
