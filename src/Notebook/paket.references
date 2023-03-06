@@ -7,3 +7,4 @@ FSharp.Data
 XPlot.Plotly
 FSharp.Core
 Microsoft.DotNet.Interactive.ExtensionLab
+Thoth.Json.Net
