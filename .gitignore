@@ -4,6 +4,7 @@
 
 #Paket dependency manager
 paket-files/
+.paket/
 
 ### Windows ###
 # Windows image file caches
