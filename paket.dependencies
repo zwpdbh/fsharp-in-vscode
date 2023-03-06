@@ -12,3 +12,4 @@ nuget Deedle
 nuget FSharp.Data
 nuget FSharp.Core 6.0.6
 nuget Microsoft.dotnet-interactive >= 1.0.355307 
+nuget Microsoft.DotNet.Interactive.ExtensionLab >= 1.0.0-beta.23152.2
