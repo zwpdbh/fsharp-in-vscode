@@ -100,6 +100,38 @@ dotnet fsi ./src/Visualization/TimeSeries01.fsx "plot" "demo01"
 dotnet fsi ./src/Visualization/TimeSeries01.fsx "pigLatin" "zwpdbh" 
 ```
 
+## Use Paket's generated script to load dependency packages
+The above `#r "nuget: Plotly.NET"` has downside that it will not utilize the paket's depdnencies directly.
+
+To solve this problem and avoid install nuget packages repeatedly. We just need to do the following changes:
+1. Add `generate_load_scripts: true` at the top of file "paket.dependencies".
+2. Run `paket restore`
+3. Change the dependences references from 
+```
+#r "nuget: Plotly.NET"
+#r "nuget: Plotly.NET.LayoutObjects"
+#r "nuget: FSharp.Data"
+```
+to 
+```
+#load @"../../.paket/load/net6.0/Plotly.NET.fsx"
+#load @"../../.paket/load/net6.0/FSharp.Data.fsx"
+```
+
+This feature comes from: [paket generate-load-scripts](https://fsprojects.github.io/Paket/paket-generate-load-scripts.html).
+
+## How to reference library built from other project
+1. Suppose we have another library project "Tools" located as src/Tools.
+2. Built that project to generate the `Tools.dll` file.
+3. Use it in our script (suppose our project is "Viaualization" located as "src/Visualization")
+```
+#r "../Tools/bin/Debug/net6.0/Tools.dll"
+open Tools.PigLatin
+
+toPigLatin "zwpdbh" |> printfn "%A"
+```
+
+
 # Jupyter Notebook for F# in Visual Studio Code
 ## Prepare vscode extensions
 1. Install "Jupyter" extension.
