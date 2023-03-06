@@ -1,3 +1,4 @@
+GENERATE-LOAD-SCRIPTS: ON
 STORAGE: NONE
 RESTRICTION: || (== net6.0) (== netstandard2.0) (== netstandard2.1)
 NUGET
@@ -68,6 +69,7 @@ NUGET
       System.Collections.Immutable (>= 7.0)
       System.CommandLine (>= 2.0.0-beta4.22272.1)
       System.Text.Json (>= 7.0)
+    Microsoft.DotNet.Interactive.ExtensionLab (1.0.0-beta.23152.2)
     Microsoft.DotNet.Interactive.Formatting (1.0.0-beta.23152.2) - restriction: || (== net6.0) (&& (== netstandard2.0) (>= netstandard2.1)) (== netstandard2.1)
       Microsoft.AspNetCore.Html.Abstractions (>= 2.2)
       Microsoft.Bcl.AsyncInterfaces (>= 7.0)
