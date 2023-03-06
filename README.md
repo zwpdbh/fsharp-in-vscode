@@ -117,6 +117,21 @@ to
 #load @"../../.paket/load/net6.0/Plotly.NET.fsx"
 #load @"../../.paket/load/net6.0/FSharp.Data.fsx"
 ```
+
+This feature comes from: [paket generate-load-scripts](https://fsprojects.github.io/Paket/paket-generate-load-scripts.html).
+
+## How to reference library built from other project
+1. Suppose we have another library project "Tools" located as src/Tools.
+2. Built that project to generate the `Tools.dll` file.
+3. Use it in our script (suppose our project is "Viaualization" located as "src/Visualization")
+```
+#r "../Tools/bin/Debug/net6.0/Tools.dll"
+open Tools.PigLatin
+
+toPigLatin "zwpdbh" |> printfn "%A"
+```
+
+
 # Jupyter Notebook for F# in Visual Studio Code
 ## Prepare vscode extensions
 1. Install "Jupyter" extension.
@@ -128,8 +143,6 @@ To let code block in Jupyter notebook has F# option, we need to run:
 dotnet tool install -g Microsoft.dotnet-interactive
 dotnet tool update -g Microsoft.dotnet-interactive
 ```
-
-This feature comes from: [paket generate-load-scripts](https://fsprojects.github.io/Paket/paket-generate-load-scripts.html).
 
 ## Register F# kernel for Jupyter
 The most easy way to do this is through "Anaconda".
